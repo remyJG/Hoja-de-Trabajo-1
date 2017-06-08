@@ -28,6 +28,34 @@ public class ventana extends javax.swing.JFrame {
         
         jTextField4.setText(String.valueOf(df.format(respuesta1)));
     }
+    
+    public void verificarVocales(){
+        String text1 = jTextField1.getText();
+        char[] vector = text1.toCharArray();
+        int contador = 0;
+        
+        for (int x=0;x<vector.length;x++){
+            System.out.println("[" + x + "] " + vector[x]);
+            String letra = String.valueOf(vector[x]);
+            if (letra.equalsIgnoreCase("a")){
+                contador = contador + 1;
+            }else  if (letra.equalsIgnoreCase("e")){
+                contador = contador + 1;
+            }else  if (letra.equalsIgnoreCase("i")){
+                contador = contador + 1;
+            }else  if (letra.equalsIgnoreCase("o")){
+                contador = contador + 1;
+            }else  if (letra.equalsIgnoreCase("u")){
+                contador = contador + 1;
+            }
+            System.out.println(contador);
+            if(contador >= 5){
+                jTextField4.setText("CUMPLE");
+            } else{
+                jTextField4.setText("NO CUMPLE");
+            }
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -65,6 +93,11 @@ public class ventana extends javax.swing.JFrame {
         });
 
         jButton2.setText("VERIFICAR VOCALES");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("INVERTIR CADENA");
 
@@ -145,6 +178,10 @@ public class ventana extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         calcularHipotemusa();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        verificarVocales();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
         
